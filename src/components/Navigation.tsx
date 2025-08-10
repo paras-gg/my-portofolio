@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import gambar from "../image/gambar.png";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,19 +26,21 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-background/80 backdrop-blur-md shadow-green border-b border-primary/20' 
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+        ? 'bg-background/80 backdrop-blur-md shadow-green border-b border-primary/20'
         : 'bg-transparent'
-    }`}>
-      <div className="container max-w-6xl mx-auto px-4">
+      }`}
+      >
+      <div className="container max-w-6xl mx-auto px-4" data-aos="fade-down" data-aos-once="true" >
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">D</span>
+            <div className="w-8 h-8 bg-primary flex items-center justify-center rounded-full">
+              <span className="text-primary-foreground font-bold text-lg">
+                <img src={gambar} alt="gambar" className="rounded-full" />
+              </span>
             </div>
-            <span className="font-bold text-xl">Developer</span>
+            <span className="font-bold text-xl">Zentro wesite</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -55,12 +58,14 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button 
-              variant="outline" 
-              className="hover:bg-primary hover:text-primary-foreground transition-colors border-primary/30"
-            >
-              Hire Me
-            </Button>
+            <a href="#">
+              <Button
+                variant="outline"
+                className="hover:bg-primary hover:text-primary-foreground transition-colors border-primary/30"
+              >
+                Hire Me
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,7 +93,7 @@ const Navigation = () => {
                   {item.label}
                 </a>
               ))}
-              <Button 
+              <Button
                 className="mt-4 shadow-green"
                 onClick={() => setIsMenuOpen(false)}
               >
